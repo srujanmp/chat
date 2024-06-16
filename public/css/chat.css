@@ -1,0 +1,22 @@
+*{
+    font-family:sans-serif;
+    font-size: 20px;
+}
+
+.messagediv{
+    padding:10px;
+    border:1px solid black;
+}
+
+.messagespan{
+    border-top:1px solid rgba(128, 128, 128, 0.24);
+    display:block;
+}
+
+div{
+    margin:10px;
+}
+
+#messageinput{
+    border:3px solid black;
+}

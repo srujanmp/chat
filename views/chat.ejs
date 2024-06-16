@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="css/chat.css">
+</head>
+<body>
+    <div>
+        logged in as <%= user %>
+        <a href="/logout"><button>LOGOUT</button></a>
+    </div>
+    <div><form action="/postmessage" method="post">
+        <input type="text" name="message" placeholder="message here" id="messageinput">
+        <button type="submit">Send</button>
+    </form></div>
+    
+    <div class="messagediv">
+        <%if(!messages){%>
+            no messages yet
+        <%}else{%>
+        <% for(let message of messages){%>
+            <span class="messagespan"><%- message.username %> : <%- message.message %></span>
+      
+        <% }}%>
+    </div>
+    
+</body>
+</html>
