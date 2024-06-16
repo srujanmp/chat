@@ -8,7 +8,7 @@ const loginRoute=require('./routes/login-route');
 const chatRoute=require('./routes/chat-route');
 
 app.set('view engine','ejs');
-
+app.set('views',__dirname+'/views');
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static(__dirname+'/public'))
