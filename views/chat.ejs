@@ -7,11 +7,34 @@
     <link rel="stylesheet" href="css/chat.css">
 </head>
 <body>
+    <script>function clicked() {
+        return confirm('Are u sure acc will be deleted');
+    }
+    function foo() {
+
+
+var user_choice = window.confirm('Account will be deleted if you continue!!');
+
+if(user_choice==true) {
+
+
+    window.location='/deleteuser';  // you can also use element.submit() if your input type='submit' 
+
+
+} else {
+
+
+return false;
+
+
+}
+}</script>
     <div>
         logged in as <%= user %>
         <a href="/logout"><button>LOGOUT</button></a>
+        <form action="/deleteuser" method="get"><input type="button" onClick="foo()" value="DELETE ACCOUNT"></form>
+
         
-        <a href="/deleteuser"><button>DELETE ACCOUNT</button></a>
     </div>
     <div><form action="/postmessage" method="post">
         <input type="text" name="message" placeholder="message here" id="messageinput">
