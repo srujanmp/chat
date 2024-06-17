@@ -33,8 +33,8 @@ return false;
 }
 }</script>
     <div class="top">
-        <img src="img/chatlogo.png" width='70px' style='border-radius:10px;margin:10px;'>
-         Logged in as <%= user %>
+        <img src="img/chatlogo.png" width='50px' style='border-radius:10px;margin:10px;'>
+         <%= user %>
         <a href="/logout"><button>LOGOUT</button></a>
         <form action="/deleteuser" method="get"><input type="button" onClick="foo()" value="DELETE ACCOUNT"></form>
 
@@ -43,10 +43,9 @@ return false;
     <div class="messagesendbox"><form action="/postmessage" method="post">
         <input type="text" name="message" placeholder="message here" id="messageinput" style='width:50%'>
         <button type="submit">Send</button>
-        <a href="javascript:window.location.reload(true)">
-            <img src="img/refresh.png" alt="Refresh" width='70px' style='border-radius:10px;margin:10px;' class="refresh-icon">
-        </a>
-    </form></div>
+        
+    </form><a href="javascript:window.location.reload(true)" style='margin-left:20px'>
+        <button>refresh</button></a></div>
     
     <div class="messagediv">
         <%if(!messages){%>
