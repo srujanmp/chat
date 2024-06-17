@@ -1,61 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= pageTitle %></title>
+    <title>
+        <%= pageTitle %>
+    </title>
     <link rel="stylesheet" href="css/chat.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <script>function clicked() {
-        return confirm('Are u sure acc will be deleted');
-    }
-    function foo() {
+            return confirm('Are u sure acc will be deleted');
+        }
+        function foo() {
+            var user_choice = window.confirm('Account will be deleted if you continue!!');
+            if (user_choice == true) {
+                window.location = '/deleteuser';  // you can also use element.submit() if your input type='submit' 
+            } else {
+                return false;
+            }
+        }
+        
 
 
-var user_choice = window.confirm('Account will be deleted if you continue!!');
-
-if(user_choice==true) {
-
-
-    window.location='/deleteuser';  // you can also use element.submit() if your input type='submit' 
-
-
-} else {
-
-
-return false;
-
-
-}
-}</script>
+    </script>
     <div class="top">
         <img src="img/chatlogo.png" width='50px' style='border-radius:10px;margin:10px;'>
-         <%= user %>
-        <a href="/logout"><button>LOGOUT</button></a>
-        <form action="/deleteuser" method="get"><input type="button" onClick="foo()" value="DELETE ACCOUNT"></form>
+        <%= user %>
+            <a href="/logout"><button>LOGOUT</button></a>
+            <form action="/deleteuser" method="get"><input type="button" onClick="foo()" value="DELETE ACCOUNT"></form>
 
-        
+
     </div>
-    <div class="messagesendbox"><form action="/postmessage" method="post">
-        <input type="text" name="message" placeholder="message here" id="messageinput" style='width:50%'>
-        <button type="submit">Send</button>
-        
-    </form><a href="javascript:window.location.reload(true)" style='margin-left:20px'>
-        <button>refresh</button></a></div>
-    
+    <div class="messagesendbox">
+        <form action="/postmessage" method="post">
+            <input type="text" name="message" placeholder="message here" id="messageinput" style='width:50%'>
+            <button type="submit">Send</button>
+
+        </form><a href="javascript:window.location.reload(true)" style='margin-left:20px'>
+            <button>refresh</button></a>
+    </div>
+
     <div class="messagediv">
         <%if(!messages){%>
             no messages yet
-        <%}else{%>
-        <% for(let message of messages){%>
-            <span class="messagespan"><%- message.username %> : <%- message.message %></span>
-      
-        <% }}%>
+            <%}else{%>
+                <% for(let message of messages){%>
+                    <span class="messagespan"><span class='left'><span style='min-width:100px;display:inline-block;font-size:18px;'><%- message.username %> </span> : <%- message.message %></span> <span class="right"><%-getTimeAgo(message.createdAt) %> </span></span>
+
+                    <% }}%>
     </div>
-    
+
 </body>
+
 </html>
