@@ -38,6 +38,7 @@ body {
 
 /* Top section */
 .top {
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,6 +53,7 @@ body {
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 15px;
 }
 
 .top a button:hover {
@@ -59,6 +61,7 @@ body {
 }
 
 .top form {
+  
   display: inline-block;
 }
 
@@ -68,6 +71,7 @@ body {
   border: none;
   padding: 5px 10px;
   cursor: pointer;
+  font-size: 15px;
 }
 
 .top form input[type="button"]:hover {
