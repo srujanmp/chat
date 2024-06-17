@@ -10,12 +10,10 @@
     <div>
         logged in as <%= user %>
         <a href="/logout"><button>LOGOUT</button></a>
-        
-        <a href="/deleteuser"><button>DELETE ACCOUNT</button></a>
     </div>
-    <div><form action="/postmessage" method="post">
-        <input type="text" name="message" placeholder="message here" id="messageinput">
-        <button type="submit">Send</button>
+    <div><form action="/admin/deleteuser" method="post">
+        <input type="text" name="user" placeholder="!!username!!" id="messageinput">
+        <button type="submit">Delete User</button>
     </form></div>
     
     <div class="messagediv">
@@ -24,6 +22,15 @@
         <%}else{%>
         <% for(let message of messages){%>
             <span class="messagespan"><%- message.username %> : <%- message.message %></span>
+      
+        <% }}%>
+    </div>
+    <div class="userdiv">
+        <%if(!users){%>
+            no users yet
+        <%}else{%>
+        <% for(let user of users){%>
+            <span class="userspan">'<%- user.username %>'</span>
       
         <% }}%>
     </div>

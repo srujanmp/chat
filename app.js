@@ -6,6 +6,7 @@ const app=express();
 
 const loginRoute=require('./routes/login-route');
 const chatRoute=require('./routes/chat-route');
+const adminRoute=require('./routes/admin-route');
 
 app.set('view engine','ejs');
 app.set('views',__dirname+'/views');
@@ -16,6 +17,7 @@ app.use(cookieSession({keys:['key1','key2']}));
 
 app.use(loginRoute);
 app.use(chatRoute);
+app.use(adminRoute);
 app.use('/',(req,res,next)=>{
     res.status(404);
     res.send("pagenotfound");
