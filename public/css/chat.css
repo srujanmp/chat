@@ -78,6 +78,8 @@ body {
   
   /* Send message box */
   .messagesendbox {
+    display: flex;
+    justify-content: space-between;
     padding: 10px 20px;
     border-bottom: 1px solid #393a3b;
     display: flex;
@@ -87,7 +89,9 @@ body {
     flex-grow: 1;
     display: flex;
   }
-  
+  input{
+    flex-grow: 1;
+  }
   .messagesendbox form input[type="text"] {
     background-color: #393a3b;
     color: #fff;
