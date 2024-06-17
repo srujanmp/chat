@@ -149,3 +149,18 @@ button {
   display: block;
 
 }
+.messagespan {
+  display: flex;
+
+  justify-content: space-between;
+}
+
+.left {
+  display: block;
+}
+
+.right {
+  font-size: 15px;
+  display: block;
+
+}
