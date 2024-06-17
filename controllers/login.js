@@ -33,18 +33,13 @@ module.exports.postLoginPage=async(req,res,next)=>{
             }
         }).catch(err=>{console.log(err);});      
     });
+    return;
 }
 
 
 module.exports.logout=(req,res,next)=>{
     req.session.user=undefined;
-    res.redirect('/login');
+    return res.redirect('/login');
 }
 
 
-module.exports.postRandomUser=async(req,res,next)=>{
-    database((connect)=>{
-        let NewUser=new User({username:"srujan",password:"123"});
-        NewUser.save();
-    });
-}

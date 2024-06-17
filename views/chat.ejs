@@ -32,14 +32,14 @@ return false;
 
 }
 }</script>
-    <div>
+    <div class="top">
         logged in as <%= user %>
         <a href="/logout"><button>LOGOUT</button></a>
         <form action="/deleteuser" method="get"><input type="button" onClick="foo()" value="DELETE ACCOUNT"></form>
 
         
     </div>
-    <div><form action="/postmessage" method="post">
+    <div class="messagesendbox"><form action="/postmessage" method="post">
         <input type="text" name="message" placeholder="message here" id="messageinput">
         <button type="submit">Send</button>
     </form></div>

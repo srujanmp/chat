@@ -9,10 +9,11 @@ module.exports.postDeleteUser=(req,res,next)=>{
         req.session.user=undefined;
         return res.redirect('/login');
     });
+    return;
 }
 module.exports.getChat=(req,res,next)=>{
     if(req.session.user===undefined){
-        res.redirect('/login');
+        return res.redirect('/login');
     }
     database(connect=>{
         User.findOne({username:req.session.user}).then(founduser=>{
@@ -31,6 +32,7 @@ module.exports.getChat=(req,res,next)=>{
         
         
     });
+    return;
     
 };
 module.exports.postMessage=(req,res,next)=>{
@@ -38,5 +40,5 @@ module.exports.postMessage=(req,res,next)=>{
         const newmessage=new Message({username:req.session.user,message:req.body.message});
         newmessage.save();
     });
-    res.redirect('/');
+    return res.redirect('/');
 };

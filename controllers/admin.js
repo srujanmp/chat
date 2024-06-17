@@ -16,7 +16,7 @@ module.exports.getAdmin=(req,res,next)=>{
             }).catch();
         })
     }
-    
+    return;
 }
 module.exports.postDeleteUser=(req,res,next)=>{
     
@@ -26,4 +26,5 @@ module.exports.postDeleteUser=(req,res,next)=>{
         req.session.user=undefined;
         return res.redirect('/admin');
     });
+    return;
 }
